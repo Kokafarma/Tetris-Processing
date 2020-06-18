@@ -2,11 +2,15 @@ package de.koka.tetris.gamestate;
 
 import de.koka.tetris.Main;
 import de.whiletrue.processingguiengine.GuiEngine;
+import processing.core.PApplet;
 
 public abstract class Gamestate {
 	
+	//Reference to the main app
+	protected PApplet app = Main.getInstance();
+	
 	//GUI-engine instance
-	private GuiEngine engine = new GuiEngine(Main.getInstance());
+	protected GuiEngine engine = new GuiEngine(this.app);
 	
 	//Game-state name
 	private String name;
@@ -35,6 +39,8 @@ public abstract class Gamestate {
 		Main.getInstance().getSurface().setTitle("");
 	}
 	public void handleClose() {}
+	
+	public void handleResize(int width,int height) {}
 	
 	public String getName() {
 		return this.name;
