@@ -1,4 +1,4 @@
-package de.koka.tetris.gamestate.gamescreen;
+package de.koka.tetris.gamestate.ingame;
 
 import de.koka.tetris.gamestate.Gamestate;
 

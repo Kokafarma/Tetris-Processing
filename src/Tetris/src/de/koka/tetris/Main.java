@@ -1,7 +1,7 @@
 package de.koka.tetris;
 
 import de.koka.tetris.gamestate.Gamestate;
-import de.koka.tetris.gamestate.gamescreen.IngameState;
+import de.koka.tetris.gamestate.ingame.IngameState;
 import processing.core.PApplet;
 
 public class Main extends PApplet {

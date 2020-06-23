@@ -1,4 +1,4 @@
-package de.koka.tetris.gamestate.gamescreen;
+package de.koka.tetris.gamestate.ingame;
 
 public class Grid {
 	int sizeX;
