@@ -1,11 +1,8 @@
 package de.koka.tetris;
 
-import java.util.Arrays;
-
 import de.koka.tetris.gamestate.Gamestate;
 import de.koka.tetris.gamestate.ingame.IngameState;
-import de.koka.tetris.gamestate.ingame.PresetTetrominos;
-import de.koka.tetris.gamestate.ingame.Tetromino;
+import de.koka.tetris.util.MusicPlayer;
 import processing.core.PApplet;
 
 public class Main extends PApplet {
@@ -30,6 +27,9 @@ public class Main extends PApplet {
 	// Game-state
 	private Gamestate state;
 
+	//Reference to the music-lib
+	private MusicPlayer music;
+	
 	// Game-name
 	private static final String GAME_NAME = "Tetris";
 
@@ -47,8 +47,12 @@ public class Main extends PApplet {
 
 	@Override
 	public void setup() {
-
+		//Creates the music-player instance
+		this.music=new MusicPlayer("rsc/background.mp3");
+		
+		//Makes the app resizeable
 		surface.setResizable(true);
+		//TODO
 		stroke(255);
 		// Opens the default game-state
 		this.openGamestate(new IngameState());

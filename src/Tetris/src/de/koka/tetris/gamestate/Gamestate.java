@@ -34,10 +34,7 @@ public abstract class Gamestate {
 	public void handleRender() {
 		this.engine.draw();
 	}
-	public void handleInit() {
-		//Sets the name
-		Main.getInstance().getSurface().setTitle("");
-	}
+	public void handleInit() {}
 	public void handleClose() {}
 	
 	public void handleResize(int width,int height) {}
