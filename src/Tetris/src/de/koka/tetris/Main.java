@@ -1,7 +1,11 @@
 package de.koka.tetris;
 
+import java.util.Arrays;
+
 import de.koka.tetris.gamestate.Gamestate;
 import de.koka.tetris.gamestate.ingame.IngameState;
+import de.koka.tetris.gamestate.ingame.PresetTetrominos;
+import de.koka.tetris.gamestate.ingame.Tetromino;
 import processing.core.PApplet;
 
 public class Main extends PApplet {
@@ -10,6 +14,16 @@ public class Main extends PApplet {
 		main(Main.class);
 	}
 
+	//TODO
+	public static void printArr(int[][] arr) {
+		System.out.println("\n");
+		for(int i=0;i<arr.length;i++) {
+			for(int x =0;x<arr[i].length;x++)
+				System.out.print("\t"+arr[i][x]+"\t");
+			System.out.println();
+		}
+	}
+	
 	// Reference to the main
 	private static Main instance;
 
@@ -19,6 +33,9 @@ public class Main extends PApplet {
 	// Game-name
 	private static final String GAME_NAME = "Tetris";
 
+	//Resize-tester
+	int preX,preY;
+	
 	public Main() {
 		instance = this;
 	}
@@ -30,6 +47,8 @@ public class Main extends PApplet {
 
 	@Override
 	public void setup() {
+		surface.setResizable(true);
+		stroke(255);
 		// Opens the default game-state
 		this.openGamestate(new IngameState());
 	}
@@ -56,6 +75,11 @@ public class Main extends PApplet {
 
 	@Override
 	public void draw() {
+		//Resize check
+		if(preX!=width || preY != height)
+			this.state.handleResize(preX=width, preY=height);
+		
+		
 		this.state.handleRender();
 	}
 
