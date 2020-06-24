@@ -7,10 +7,9 @@ public class Tetromino {
 	int x, y;
 	int rgb;
 
-	public Tetromino(PresetTetrominos preset) {
-
+	public Tetromino(PresetTetrominos preset,int color) {
 		coords = preset.getCoords();
-
+		rgb=color;
 	}
 
 	public void rotate() {
@@ -35,8 +34,21 @@ public class Tetromino {
 		this.y = y;
 	}
 	static Tetromino genRdmTetro() {
-		ThreadLocalRandom.current().nextInt(0,8);
-		PresetTetrominos.values();
+		
+		int len = PresetTetrominos.values().length;
+		int index = ThreadLocalRandom.current().nextInt(0,len);
+		
+		PresetTetrominos shape = PresetTetrominos.values()[index];
+		
+		int [] colors = {0xff80ff00,0xff99ffff,0xff3333ff,0xffff9933,0xff990000,0xffffff66};
+		
+		int colorLen = colors.length;
+		int colorDex = ThreadLocalRandom.current().nextInt(0,colorLen);
+		
+		int rgb = colors[colorDex];
+		
+		return new Tetromino(shape,rgb);
+		
 		
 	}
 

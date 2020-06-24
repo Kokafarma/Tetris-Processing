@@ -47,6 +47,7 @@ public class Main extends PApplet {
 
 	@Override
 	public void setup() {
+
 		surface.setResizable(true);
 		stroke(255);
 		// Opens the default game-state
