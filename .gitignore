@@ -1,0 +1,9 @@
+src/.metadata/
+src/.recommenders/
+src/Tetris/bin/
+
+src/RemoteSystemsTempFiles/
+src/Tetris/.classpath
+src/Tetris/.gitignore
+src/Tetris/.project
+src/Tetris/.settings/
